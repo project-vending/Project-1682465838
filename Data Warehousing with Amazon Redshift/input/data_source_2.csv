@@ -1,0 +1,29 @@
+
+import csv
+import random
+
+# Set the name of the output file
+output_file = "data_source_2.csv"
+
+# Define column names and data types
+headers = ["id", "name", "age", "city", "state"]
+data_types = [int, str, int, str, str]
+
+# Set the number of rows to be generated
+num_rows = 1000
+
+# Generate random data for each column and write to CSV file
+with open(output_file, "w", newline="") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(headers)
+    for i in range(num_rows):
+        row = [f"row_{i+1}"]
+        for data_type in data_types:
+            if data_type == int:
+                row.append(random.randint(18, 65))
+            elif data_type == str:
+                row.append(f"City_{random.randint(1, 10)}")
+                row.append(f"State_{random.choice(['CA', 'NY', 'TX', 'WA'])}")
+        writer.writerow(row)
+
+print(f"{num_rows} rows written to {output_file}.")
