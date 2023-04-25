@@ -1,0 +1,18 @@
+python
+import csv
+
+# Define the header row and data rows
+header = ["id", "name", "age"]
+data_rows = [
+    [1, "Alice", 29],
+    [2, "Bob", 42],
+    [3, "Charlie", 35],
+    [4, "David", 28],
+    [5, "Eve", 32]
+]
+
+# Write the header row and data rows to the CSV file
+with open("Data Warehousing with Amazon Redshift/input/data_source_1.csv", "w", newline="") as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(header)
+    writer.writerows(data_rows)
